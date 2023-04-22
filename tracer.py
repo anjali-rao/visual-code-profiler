@@ -1,6 +1,7 @@
 # extracts frame code
 import datetime
 import time
+import psutil
 
 
 def write_log_to_file(log_line):
@@ -18,6 +19,7 @@ def add_base_logs(event, filename, line_no, method_name, l_args, g_args):
         "g_args": g_args,
         "event": event,
         "exc_time": time.time(),
+        "ram_usage": psutil.virtual_memory().used,
         "cpu_time": time.process_time()
     }
 
